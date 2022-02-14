@@ -8,14 +8,14 @@
     android:background="@color/hash"
     tools:context=".Fragments.CartFragment">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:paddingHorizontal="10dp"-->
-<!--        >-->
-<!--        <include-->
-<!--            layout="@layout/headerlayouttitle"/>-->
-<!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="10dp"
+        >
+        <include
+            layout="@layout/headerlayouttitle"/>
+    </LinearLayout>
 
 </FrameLayout>

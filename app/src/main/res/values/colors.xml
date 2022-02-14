@@ -10,5 +10,6 @@
     <color name="orange">#FF5722</color>
     <color name="offhash">#cccccc</color>
     <color name="hash">#F0F0F0</color>
+    <color name="hash2">#DDDDDD</color>
     <color name="red">#EF0836</color>
 </resources>
