@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    tools:context=".Fragments.FragmentTwo">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/eone"
+        android:scaleType="fitXY"
+        android:layout_weight="3"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buy your best products"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/robotobold"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Definition: Ecommerce photography is a photo created as a visual stand-in for your product for shoppers in an online store. For example, these are the photos you see on ecommerce product listings for sites from Amazon to Zappos, as well as self-hosted ecommerce sites"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/robotoregular"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

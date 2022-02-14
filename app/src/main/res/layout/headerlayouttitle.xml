@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="@color/hash"
+    android:weightSum="5"
+    android:id="@+id/header_titleid"
+    >
+
+    <ImageView
+        android:id="@+id/backicon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_left_back"
+        android:layout_gravity="center_vertical"
+        android:minHeight="30dp"
+        android:layout_marginRight="15dp"
+        />
+
+    <TextView
+        android:id="@+id/titleid"
+        android:layout_weight="5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textSize="17dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:text="cart"
+        android:fontFamily="@font/robotomedium"
+        />
+
+
+
+
+
+</LinearLayout>
