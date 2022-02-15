@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,10 +15,12 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -41,17 +44,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity   {
 
     private Fragment fragment ;
-    private ImageView imageCategory,imageWishlist,imageCart,imageUser,imageHome,imageBackicon;
+    private ImageView DrowerIcon;
     private TextView TitleText;
     private SharedPreferences SavedatastatePref;
     private SharedPreferences.Editor editor;
-
    private CardView middleCard;
+   private DrawerLayout drawerLayout ;
 
    private AppBarConfiguration appBarConfiguration;
 
-
-  
 
     FragmentManager fragmentManagerback = this.getSupportFragmentManager();
 
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity   {
         middleCard = findViewById(R.id.hom);
 
         //drower layout
-        DrawerLayout drawerLayout = findViewById(R.id.DrowerId);
+         drawerLayout = findViewById(R.id.DrowerId);
         NavigationView navigationView = findViewById(R.id.nav_view); //side drower
 
 
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity   {
         item.setChecked(true);
 
 
-        //bottom lauout
+        //bottom layout
         //Initialize Bottom Navigation View.
         BottomNavigationView navView = findViewById(R.id.bottom_nav_view);
 
@@ -106,6 +107,13 @@ public class MainActivity extends AppCompatActivity   {
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.Navhostid);
         return   NavigationUI.navigateUp(navController,appBarConfiguration) || super.onSupportNavigateUp();
+    }
+
+
+    @SuppressLint("WrongConstant")
+    public void openDrawer() { //this connect with fragment
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.DrowerId);
+        drawer.openDrawer(Gravity.START);
     }
 
 
