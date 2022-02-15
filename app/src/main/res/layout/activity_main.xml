@@ -74,6 +74,10 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
         android:fitsSystemWindows="true"
+
+        app:itemIconTint="@drawable/drawer_item"
+        app:itemTextColor="@drawable/drawer_item"
+        app:itemBackground="@drawable/nav_item_active_color"
         app:menu="@menu/activity_main_drawer"
         >
         <LinearLayout

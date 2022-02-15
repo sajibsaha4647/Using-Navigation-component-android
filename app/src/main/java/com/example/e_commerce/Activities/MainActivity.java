@@ -73,11 +73,6 @@ public class MainActivity extends AppCompatActivity   {
         NavigationView navigationView = findViewById(R.id.nav_view); //side drower
 
 
-        MenuItem item = navigationView.getMenu().findItem(R.id.wishlistFragment2);
-        item.setCheckable(true);
-        item.setChecked(true);
-
-
         //bottom layout
         //Initialize Bottom Navigation View.
         BottomNavigationView navView = findViewById(R.id.bottom_nav_view);
