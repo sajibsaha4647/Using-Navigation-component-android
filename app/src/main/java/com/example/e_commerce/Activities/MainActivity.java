@@ -1,5 +1,7 @@
 package com.example.e_commerce.Activities;
 
+import static android.view.View.GONE;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -36,6 +39,8 @@ import com.example.e_commerce.Fragments.HomeFragment;
 import com.example.e_commerce.Fragments.UserFragment;
 import com.example.e_commerce.Fragments.WishlistFragment;
 import com.example.e_commerce.R;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -50,8 +55,9 @@ public class MainActivity extends AppCompatActivity   {
     private SharedPreferences.Editor editor;
    private CardView middleCard;
    private DrawerLayout drawerLayout ;
+    private  BottomNavigationView navView;
 
-   private AppBarConfiguration appBarConfiguration;
+    private AppBarConfiguration appBarConfiguration;
 
 
     FragmentManager fragmentManagerback = this.getSupportFragmentManager();
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity   {
 
         //bottom layout
         //Initialize Bottom Navigation View.
-        BottomNavigationView navView = findViewById(R.id.bottom_nav_view);
+        BottomNavigationView navView = findViewById(R.id.bottom_nav_view);//bottom navigation
 
         //Pass the ID's of Different destinations
          appBarConfiguration = new AppBarConfiguration.Builder(
@@ -96,6 +102,8 @@ public class MainActivity extends AppCompatActivity   {
             }
         });
 
+        addBadgeView();
+
     }
 
     @Override
@@ -109,6 +117,19 @@ public class MainActivity extends AppCompatActivity   {
     public void openDrawer() { //this connect with fragment
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.DrowerId);
         drawer.openDrawer(Gravity.START);
+    }
+
+
+    private void addBadgeView() {
+        try {
+            BottomNavigationMenuView menuView = (BottomNavigationMenuView) navView.getChildAt(2);
+            BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(2); //set this to 0, 1, 2, or 3.. accordingly which menu item of the bottom bar you want to show badge
+            View notificationBadge = LayoutInflater.from(MainActivity.this).inflate(R.layout.badge, menuView, false);
+            itemView.addView(notificationBadge);
+//            notificationBadge.setVisibility(GONE);// initially badge will be invisible
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

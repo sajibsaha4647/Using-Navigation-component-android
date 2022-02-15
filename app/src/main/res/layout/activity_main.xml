@@ -40,7 +40,9 @@
             android:background="@color/white"
             app:itemIconTint="@drawable/navigation_view_colored"
             app:itemTextColor="@drawable/navigation_view_colored"
-            app:menu="@menu/bottomtab" />
+            app:menu="@menu/bottomtab" >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/hom"
@@ -64,6 +66,17 @@
                 app:tint="@color/white" />
 
         </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/badge"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/hom"
+            app:layout_constraintTop_toTopOf="@+id/hom"
+            app:srcCompat="@drawable/notification_badge" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
