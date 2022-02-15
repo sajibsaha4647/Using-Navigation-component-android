@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -33,10 +34,11 @@ import com.example.e_commerce.Fragments.UserFragment;
 import com.example.e_commerce.Fragments.WishlistFragment;
 import com.example.e_commerce.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity   {
 
     private Fragment fragment ;
     private ImageView imageCategory,imageWishlist,imageCart,imageUser,imageHome,imageBackicon;
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity  {
     private SharedPreferences.Editor editor;
 
    private CardView middleCard;
+
+   private AppBarConfiguration appBarConfiguration;
+
 
   
 
@@ -62,18 +67,31 @@ public class MainActivity extends AppCompatActivity  {
 
         middleCard = findViewById(R.id.hom);
 
+        //drower layout
+        DrawerLayout drawerLayout = findViewById(R.id.DrowerId);
+        NavigationView navigationView = findViewById(R.id.nav_view); //side drower
+
+
+        MenuItem item = navigationView.getMenu().findItem(R.id.wishlistFragment2);
+        item.setCheckable(true);
+        item.setChecked(true);
+
+
+        //bottom lauout
         //Initialize Bottom Navigation View.
         BottomNavigationView navView = findViewById(R.id.bottom_nav_view);
 
         //Pass the ID's of Different destinations
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.homeFragment, R.id.cartFragment2,R.id.wishlistFragment2, R.id.categoryFragment, R.id.userFragment )
+         appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.homeFragment, R.id.cartFragment2,R.id.wishlistFragment2, R.id.categoryFragment, R.id.userFragment)
+                .setDrawerLayout(drawerLayout)
                 .build();
 
-        //Initialize NavController.
+        //Initialize NavController. Bottom tab
         NavController navController = Navigation.findNavController(this, R.id.Navhostid);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
         middleCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,11 +100,13 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
+    }
 
-
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.Navhostid);
+        return   NavigationUI.navigateUp(navController,appBarConfiguration) || super.onSupportNavigateUp();
     }
 
 
-
-    }
+}

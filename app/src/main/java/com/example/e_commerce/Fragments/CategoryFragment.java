@@ -35,7 +35,7 @@ public class CategoryFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().popBackStackImmediate();
+                requireActivity().onBackPressed();
             }
         });
 

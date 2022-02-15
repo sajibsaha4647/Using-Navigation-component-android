@@ -27,10 +27,11 @@ public class UserFragment extends Fragment {
             setTitle.setText("Account");
 
             imageView = view.findViewById(R.id.backicon);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().popBackStackImmediate();
+                requireActivity().onBackPressed();
             }
         });
 
